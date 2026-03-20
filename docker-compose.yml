@@ -57,9 +57,19 @@ services:
       - mariadb-data:/var/lib/mysql
     restart: unless-stopped
 
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb-data:/data/db
+    restart: unless-stopped
+
 volumes:
   redis-data:
   postgres-data:
   sqlserver_data:
   elasticsearch-data:
   mariadb-data:
+  mongodb-data:
